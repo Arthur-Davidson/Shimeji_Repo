@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FBAA32CB2F8FD124001A993D /* mundo_virtual in Frameworks */ = {isa = PBXBuildFile; productRef = FBAA32CA2F8FD124001A993D /* mundo_virtual */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		FBAA32B92F8FC7BA001A993D /* Shimeji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shimeji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBAA32CB2F8FD124001A993D /* mundo_virtual in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = Shimeji;
 			packageProductDependencies = (
+				FBAA32CA2F8FD124001A993D /* mundo_virtual */,
 			);
 			productName = Shimeji;
 			productReference = FBAA32B92F8FC7BA001A993D /* Shimeji.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = FBAA32B02F8FC7BA001A993D;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FBAA32C92F8FD124001A993D /* XCLocalSwiftPackageReference "Shimeji/mundo_virtual" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FBAA32BA2F8FC7BA001A993D /* Products */;
 			projectDirPath = "";
@@ -256,6 +265,7 @@
 				DEVELOPMENT_TEAM = 46HFMXNPH4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.adventure-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -288,6 +298,7 @@
 				DEVELOPMENT_TEAM = 46HFMXNPH4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.adventure-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -332,6 +343,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		FBAA32C92F8FD124001A993D /* XCLocalSwiftPackageReference "Shimeji/mundo_virtual" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Shimeji/mundo_virtual;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FBAA32CA2F8FD124001A993D /* mundo_virtual */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = mundo_virtual;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FBAA32B12F8FC7BA001A993D /* Project object */;
 }

@@ -6,16 +6,23 @@
 //
 
 import SwiftUI
+import RealityKit
+import mundo_virtual
 
 struct ContentView: View {
+    @State var lejitud: Float = 0
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack{
+            Rectangle()
+            RealityView{ raiz_de_escena in if let modelo_cubo = try? await Entity(named: "escena", in: mundo_virtualBundle) {
+                modelo_cubo.position.z = Float(lejitud)
+                raiz_de_escena.add(modelo_cubo)
+                }
+                
+            }
         }
-        .padding()
+        
+        Slider(value: $lejitud)
     }
 }
 

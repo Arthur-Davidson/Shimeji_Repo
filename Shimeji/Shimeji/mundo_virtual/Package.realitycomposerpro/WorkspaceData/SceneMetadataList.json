@@ -1,0 +1,52 @@
+{
+  "F61955FE-7685-4F08-9B97-CC386258F4B2" : {
+    "objectMetadataList" : [
+      [
+        "F61955FE-7685-4F08-9B97-CC386258F4B2",
+        "Root",
+        "anim_1"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F61955FE-7685-4F08-9B97-CC386258F4B2",
+        "Root",
+        "anim_1",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F61955FE-7685-4F08-9B97-CC386258F4B2",
+        "Root",
+        "rotacion_infinita",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F61955FE-7685-4F08-9B97-CC386258F4B2",
+        "Root",
+        "rotacion_infinita"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F61955FE-7685-4F08-9B97-CC386258F4B2",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  }
+}
