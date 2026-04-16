@@ -1,7 +1,8 @@
 {
-  "advancedEditorSelectedIdentifier" : "BehaviorsPluginID",
+  "advancedEditorSelectedIdentifier" : "ProjectBrowser",
   "openSceneRelativePaths" : [
-    "Scene.usda"
+    "escena.usda",
+    "planetario\/escena.usda"
   ],
   "recentIdentifiers" : {
     "F61955FE-7685-4F08-9B97-CC386258F4B2" : [
@@ -9,6 +10,30 @@
     ]
   },
   "sceneCameraHistory" : {
+    "15D1689F-B458-4782-94AD-31201863598C" : [
+      {
+        "date" : 798060375.878386,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          -0.13700664,
+          1.5746417,
+          2.082939,
+          1
+        ]
+      }
+    ],
     "F61955FE-7685-4F08-9B97-CC386258F4B2" : [
       {
         "date" : 797953975.060682,
@@ -234,5 +259,6 @@
   },
   "sceneViewportBackgroundColors" : {
 
-  }
+  },
+  "selectedSceneRelativePath" : "planetario\/escena.usda"
 }

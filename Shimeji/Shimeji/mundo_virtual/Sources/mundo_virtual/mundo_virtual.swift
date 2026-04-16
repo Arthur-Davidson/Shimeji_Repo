@@ -1,4 +1,17 @@
 import Foundation
 
 /// Bundle for the mundo_virtual project
-public let mundo_virtualBundle = Bundle.module
+public let MundoVirtual = Bundle.module
+
+public let escenario_planeta = "planetario/escena"
+
+public let planetas = [
+    "planetario/escena",
+    "planetario/escena",
+    "planetario/escena",
+    "planetario/escena",
+    "planetario/escena",
+    "planetario/escena",
+    "planetario/escena",
+    "planetario/escena",
+]
