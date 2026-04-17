@@ -8,6 +8,25 @@
       {
         "isExpanded" : true,
         "isLocked" : false
+      },
+      [
+        "15D1689F-B458-4782-94AD-31201863598C",
+        "Root",
+        "saltito",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "15D1689F-B458-4782-94AD-31201863598C",
+        "Root",
+        "saltito"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
       }
     ]
   },
@@ -16,7 +35,8 @@
       [
         "F61955FE-7685-4F08-9B97-CC386258F4B2",
         "Root",
-        "rotacion_infinita"
+        "anim_1",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -25,8 +45,7 @@
       [
         "F61955FE-7685-4F08-9B97-CC386258F4B2",
         "Root",
-        "rotacion_infinita",
-        "Track"
+        "anim_1"
       ],
       {
         "isExpanded" : true,
@@ -43,8 +62,7 @@
       [
         "F61955FE-7685-4F08-9B97-CC386258F4B2",
         "Root",
-        "anim_1",
-        "Track"
+        "rotacion_infinita"
       ],
       {
         "isExpanded" : true,
@@ -53,7 +71,8 @@
       [
         "F61955FE-7685-4F08-9B97-CC386258F4B2",
         "Root",
-        "anim_1"
+        "rotacion_infinita",
+        "Track"
       ],
       {
         "isExpanded" : true,

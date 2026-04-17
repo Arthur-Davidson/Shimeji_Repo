@@ -12,13 +12,15 @@ import mundo_virtual
 @Observable
 @MainActor
 public class ControladorAplicacion{
-    public var escenario: Entity? = nil
+    //public var escenario: Entity? = nil
     
     public var raiz_escena: Entity = Entity()
     
     public var estado: EstadosAplicacion = .iniciando
     
     private var planetas_cargados: [Entity] = []
+    
+    var historial_comandos: [Comando] = []
     
     init(){
         Task.detached(priority: .high) {

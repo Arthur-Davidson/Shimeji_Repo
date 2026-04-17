@@ -10,7 +10,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["anim_1", "rotacion_infinita"]
+    reorder nameChildren = ["anim_1", "rotacion_infinita", "saltito"]
     def "Moon" (
         active = true
         references = @Moon.usdz@
@@ -91,7 +91,10 @@ def Xform "Root"
 
     def RealityKitComponent "RCP_BehaviorsContainer"
     {
-        rel behaviors = </Root/OnAddedToScene>
+        rel behaviors = [
+            </Root/OnAddedToScene>,
+            </Root/OnNotification>,
+        ]
         uniform token info:id = "RCP.BehaviorsContainer"
     }
 
@@ -112,6 +115,95 @@ def Xform "Root"
             rel affectedObjects = </Root>
             rel animationLibraryKey = </Root/rotacion_infinita>
             rel animationLibraryKeyOverrideKey = </Root/OnAddedToScene/Trigger>
+            token info:id = "PlayTimeline"
+            int loops = 0
+            int performCount = 1
+            token type = "serial"
+        }
+    }
+
+    def RealityKitTimeline "saltito"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Transform_To"
+            {
+                string actionKind = "moveTo"
+                int blendLayer = 300
+                double duration = 0.43846558998764046
+                uniform token info:id = "FA3E9759-86D3-4609-9E7F-9991D0BA0505"
+                float3 position = (0, 0.1, 0)
+                quatf rotation = (1, 0, 0, 0)
+                float3 scale = (1, 1, 1)
+                double startTime = 0
+                rel target = </Root/Moon>
+
+                def RealityKitStruct "transformMode"
+                {
+                    rel referenceEntity = </Root>
+                    token type = "parent"
+                }
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "easeIn"
+                }
+            }
+
+            def RealityKitAction "Transform_To2"
+            {
+                string actionKind = "moveTo"
+                int blendLayer = 300
+                double duration = 0.5803048923220974
+                uniform token info:id = "EA14DC4B-85C6-44BA-9CF3-66722BC93B08"
+                float3 position = (-0.004593332, 0, 0.008864522)
+                quatf rotation = (1, 0, 0, 0)
+                float3 scale = (1, 1, 1)
+                double startTime = 0.43846558998764046
+                rel target = </Root/Moon>
+
+                def RealityKitStruct "transformMode"
+                {
+                    rel referenceEntity = </Root>
+                    token type = "parent"
+                }
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "easeOut"
+                }
+            }
+
+            def RealityKitAction "Notification"
+            {
+                string actionKind = "notification"
+                double duration = 0
+                uniform token info:id = "84A85455-F526-45E4-A539-0378F9F9F2F2"
+                string notificationName = "hola_mundo"
+                double startTime = 1.0260709269662922
+                rel target = </Root>
+            }
+        }
+    }
+
+    def Preliminary_Behavior "OnNotification"
+    {
+        rel actions = </Root/OnNotification/Action>
+        uniform bool exclusive
+        rel triggers = </Root/OnNotification/Trigger>
+
+        def Preliminary_Trigger "Trigger"
+        {
+            rel affectedObjects = </Root>
+            string identifier = "da_un_salto"
+            token info:id = "Notification"
+        }
+
+        def Preliminary_Action "Action"
+        {
+            rel affectedObjects = </Root>
+            rel animationLibraryKey = </Root/saltito>
+            rel animationLibraryKeyOverrideKey = </Root/OnNotification/Trigger>
             token info:id = "PlayTimeline"
             int loops = 0
             int performCount = 1
