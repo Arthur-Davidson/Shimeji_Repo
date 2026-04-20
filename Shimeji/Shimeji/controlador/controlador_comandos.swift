@@ -27,5 +27,9 @@ extension ControladorAplicacion {
             return true
         }
         return false
+        
+    case .activar_pantalla:
+        fatalError("[\(#file): \(#function)] No has implementado esto \(tipo)")
+        return false
     }
 }

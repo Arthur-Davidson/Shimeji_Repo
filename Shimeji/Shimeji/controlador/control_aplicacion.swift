@@ -22,6 +22,8 @@ public class ControladorAplicacion{
     
     var historial_comandos: [Comando] = []
     
+    var estados_animacion: MaquinaEstadosGenerica = MaquinaEstadosAnimacion()
+    
     init(){
         Task.detached(priority: .high) {
             await self.cargar_planetas()
