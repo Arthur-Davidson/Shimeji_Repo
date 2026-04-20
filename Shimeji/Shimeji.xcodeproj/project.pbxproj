@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB29E2112F965EA900083114 /* mundo_virtual in Resources */ = {isa = PBXBuildFile; fileRef = FB29E2072F965EA900083114 /* mundo_virtual */; };
 		FBAA32CB2F8FD124001A993D /* mundo_virtual in Frameworks */ = {isa = PBXBuildFile; productRef = FBAA32CA2F8FD124001A993D /* mundo_virtual */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB29E2072F965EA900083114 /* mundo_virtual */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = mundo_virtual; sourceTree = "<group>"; };
 		FBAA32B92F8FC7BA001A993D /* Shimeji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shimeji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -39,6 +41,7 @@
 			children = (
 				FBAA32BB2F8FC7BA001A993D /* Shimeji */,
 				FBAA32BA2F8FC7BA001A993D /* Products */,
+				FB29E2072F965EA900083114 /* mundo_virtual */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +121,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB29E2112F965EA900083114 /* mundo_virtual in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
