@@ -5,29 +5,29 @@
 //  Created by alumno on 4/20/26.
 //
 
-class SaltoAnimacion: Estado {
-    var contexto: any MaquinaEstadosGenerica?
+class SaltoAnimacion: Estado{
+    var contexto: (any MaquinaEstadosGenerica)? = nil
     
     static let nombre = "Salto"
-    
-    init(_ contexto: MaquinaEstadosGenerica){
-        self.contexto = contexto
-    }
+
     
     func inicializar() {
-        
+        print("HOla desde Saltillo Hermosillo \(#file)")
     }
     
     func actualizar(_ evento: String) {
-        
+        switch evento{
+            default:
+                print("HOla a todos desde el estado de Saltillo Guanajuatillo")
+                contexto?.realizar_cambio_de_estado(a: PlanetasDesaparecidos.nombre)
+        }
     }
     
-    func finalizar() {
-        
+    func finalizar() {}
+    
+    func reaccion(estimulo: String) {
     }
     
-    func reaccion(estado: String) {
-        
-    }
     
 }
+

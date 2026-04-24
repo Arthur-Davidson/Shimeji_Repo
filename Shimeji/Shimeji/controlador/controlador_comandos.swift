@@ -6,30 +6,40 @@
 //
 import SwiftUI
 
-enum Comandos{
-    case activar_animacion
-}
-
-public struct Comando: Identifiable{
-    public let id = UUID()
-    
-    let tipo: Comandos
-    let carga_util: String
-}
-
-extension ControladorAplicacion {
+extension ControladorAplicacion: ProcesarComandos {
     func realizar_comando(tipo: Comandos, carga_util: String) -> Bool {
-        switch tipo {
-        case .activar_animacion:
-            activar_comportamiento(carga_util)
-            historial_comandos.append(Comando(tipo: tipo, carga_util: carga_util)
-            )
-            return true
+        switch tipo{
+            case .activar_animacion:
+                activar_comportamiento(carga_util)
+                historial_comandos.append(
+                        Comando(tipo: tipo, carga_util: carga_util)
+                )
+                return true
+                
+            default:
+                fatalError("[\(#file):\(#function)] NO has implentado esto campeon \(tipo)")
+                return false
         }
-        return false
         
-    case .activar_pantalla:
-        fatalError("[\(#file): \(#function)] No has implementado esto \(tipo)")
+        return false
+    }
+    
+    func realizar_comando(_ comanda: Comando) -> Bool {
+        switch comanda.tipo{
+            case .activar_animacion:
+                activar_comportamiento(comanda.carga_util)
+                historial_comandos.append(
+                        comanda
+                )
+                return true
+                
+            default:
+                fatalError("[\(#file):\(#function)] NO has implentado esto campeon \(comanda.tipo)")
+                return false
+        }
+        
         return false
     }
 }
+
+
