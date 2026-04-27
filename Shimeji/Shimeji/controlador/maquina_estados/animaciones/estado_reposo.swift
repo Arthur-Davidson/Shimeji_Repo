@@ -17,7 +17,7 @@ class ReposoAnimacion: Estado{
         print("\(#function) recibiendo informacion del tipo evento con datos \(evento)")
         
         switch evento{
-            case "da_un_salto":
+            case "boton_cerrar":
                 contexto?.enviar_peticion(Comando(tipo: .activar_animacion, carga_util: "da_un_salto"))
                 contexto?.realizar_cambio_de_estado(a: SaltoAnimacion.nombre)
                 
@@ -32,4 +32,6 @@ class ReposoAnimacion: Estado{
     func reaccion(estimulo: String) { }
 
 }
+
+
 

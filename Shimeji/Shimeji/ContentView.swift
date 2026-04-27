@@ -5,12 +5,11 @@
 //  Created by alumno on 4/15/26.
 //
 
-
 import SwiftUI
 import RealityKit
 import mundo_virtual
 
-struct ContentView: View{
+struct Inicio: View{
     @State var lejitud: Float = 0
     @Environment(ControladorAplicacion.self) var controlador
     
@@ -19,19 +18,42 @@ struct ContentView: View{
             Rectangle()
             VStack{
                 switch controlador.estado{
-                case .iniciando:
-                        Text("Cargando aplciacion, por favor espera")
+                    case .iniciando:
+                        Text("Cargando aplicacion, por favor espera")
                             .foregroundStyle(Color.red)
                         
                     case .todo_cargado:
                         RealityView{ raiz_de_escena in
+                            raiz_de_escena.camera = .spatialTracking
+                            
+                            controlador.escenario = raiz_de_escena
+                            
                             raiz_de_escena.add(controlador.raiz_escena)
+                            
+                            for ancla in controlador.entidades_ancla{
+                                raiz_de_escena.add(ancla)
+                            }
+                            
+                        } update: { contenido in
+                            controlador.escenario = contenido
+                        }
+                        
+                        .gesture(
+                            SpatialTapGesture().targetedToAnyEntity().onEnded(
+                                { entidad in
+                                    print("[Inicio:gesture] \(entidad.entity)")
+                            
+                                }
+                            )
+                        )
+                        
+                        .task {
+                            await controlador.servicio_ar()
                         }
                         .onReceive(NotificationCenter.default.publisher(for: Notification.Name("RealityKit.NotificationTrigger"))){ notificacion in
                             guard let notificacion = notificacion.userInfo?["RealityKit.NotificationTrigger.Identifier"] as? String else { return }
                             
                             controlador.escuchar_comportamiento(notificacion)
-                            
                         }
                 }
                 
@@ -53,7 +75,11 @@ struct ContentView: View{
             }
             
             Button{
-                controlador.actualizar_estados("da_un_salto")
+                controlador.actualizar_estados("boton_cerrar")
+                Task.detached(){
+                    await controlador.servicio_ar()
+                }
+
             }
             label: {
                 Text("Da un saltito")
@@ -70,7 +96,9 @@ struct ContentView: View{
 }
 
 #Preview {
-    ContentView()
+    Inicio()
         .environment(ControladorAplicacion())
 }
+
+
 

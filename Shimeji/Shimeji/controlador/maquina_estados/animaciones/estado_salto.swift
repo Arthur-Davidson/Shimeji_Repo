@@ -17,7 +17,10 @@ class SaltoAnimacion: Estado{
     
     func actualizar(_ evento: String) {
         switch evento{
+            case "boton_cerrar":
+                print("Hola mundo porque estan pulsando el boton cerrar")
             default:
+                return
                 print("HOla a todos desde el estado de Saltillo Guanajuatillo")
                 contexto?.realizar_cambio_de_estado(a: PlanetasDesaparecidos.nombre)
         }
@@ -30,4 +33,5 @@ class SaltoAnimacion: Estado{
     
     
 }
+
 
