@@ -12,25 +12,24 @@ import mundo_virtual
 struct SeguimientoImagenes: View {
     var body: some View {
         RealityView{ contenido in
-            contenido.camera = .spatialTracking
+            contenido.camera = .virtual
             
-            let ancla = AnchorEntity(.image(group: "imagenes", name: "maik_wazoski") )
+            // let ancla = AnchorEntity(.image(group: "imagenes", name: "maik_wazoski") )
             
-            // let modelo_a_colocar = ModelEntity(mesh: .generateBox(size: 0.75), materials: [SimpleMaterial(color: .green, isMetallic: true)])
-            if let modelo_a_colocar = try? await Entity(named: "planetario/escena", in: MundoVirtual){
-                ancla.addChild(modelo_a_colocar)
-            }
-            else {
-                fatalError("aqui no hay algo")
-            }
+            let modelo_a_colocar = ModelEntity(mesh: .generateBox(size: 0.75), materials: [SimpleMaterial(color: .green, isMetallic: true)])
+            modelo_a_colocar.generateCollisionShapes(recursive: true)
+            modelo_a_colocar.components.set(InputTargetComponent())
+            //if let modelo_a_colocar = try? await Entity(named: "planetas", in: MundoVirtual){
+                //ancla.addChild(modelo_a_colocar)
+            //}
             
-            contenido.add(ancla)
+            //contenido.add(ancla)
+            contenido.add(modelo_a_colocar)
         }
-        // Este cacho es nuevo
         .gesture(SpatialTapGesture().targetedToAnyEntity().onEnded({
-            accion_realizada in print("Accion realizada es: \(accion_realizada.entity)")
+            accion_realizada in
+                print("Accion realizada es: \(accion_realizada.entity)")
         }))
-        //
         .gesture(SpatialTapGesture().targetedToAnyEntity().onEnded({ entidad_apachurrada in
            print("Se ha pulsado \(entidad_apachurrada)")
         }))
@@ -43,5 +42,7 @@ struct SeguimientoImagenes: View {
 #Preview {
     SeguimientoImagenes()
 }
+
+
 
 

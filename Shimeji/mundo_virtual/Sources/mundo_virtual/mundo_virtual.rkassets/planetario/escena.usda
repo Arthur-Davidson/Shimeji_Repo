@@ -10,7 +10,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["anim_1", "rotacion_infinita", "saltito"]
+    reorder nameChildren = ["anim_1", "rotacion_infinita", "saltito", "vuelta_rapida"]
     def "Moon" (
         active = true
         references = @Moon.usdz@
@@ -94,6 +94,7 @@ def Xform "Root"
         rel behaviors = [
             </Root/OnAddedToScene>,
             </Root/OnNotification>,
+            </Root/OnNotification2>,
         ]
         uniform token info:id = "RCP.BehaviorsContainer"
     }
@@ -208,6 +209,76 @@ def Xform "Root"
             int loops = 0
             int performCount = 1
             token type = "serial"
+        }
+    }
+
+    def Preliminary_Behavior "OnNotification2"
+    {
+        rel actions = </Root/OnNotification2/Action>
+        uniform bool exclusive
+        rel triggers = </Root/OnNotification2/Trigger>
+
+        def Preliminary_Trigger "Trigger"
+        {
+            rel affectedObjects = </Root>
+            string identifier = "vuelta_rapida"
+            token info:id = "Notification"
+        }
+
+        def Preliminary_Action "Action"
+        {
+            rel affectedObjects = </Root>
+            rel animationLibraryKey = </Root/vuelta_rapida>
+            rel animationLibraryKeyOverrideKey = </Root/OnNotification2/Trigger>
+            token info:id = "PlayTimeline"
+            int loops = 0
+            int performCount = 1
+            token type = "serial"
+        }
+    }
+
+    def RealityKitTimeline "vuelta_rapida"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Spin"
+            {
+                string actionKind = "spin"
+                int blendLayer = 400
+                double duration = 0.3
+                uniform token info:id = "8FB292BF-64F2-4BE0-9A23-01F5B3B00C1B"
+                float revolutions = 5
+                double startTime = 0
+                rel target = </Root/Moon>
+
+                def RealityKitStruct "timingFunction"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitComponent "InputTarget"
+    {
+        uniform token info:id = "RealityKit.InputTarget"
+    }
+
+    def RealityKitComponent "Collider"
+    {
+        uint group = 1
+        uniform token info:id = "RealityKit.Collider"
+        uint mask = 4294967295
+        token type = "Default"
+
+        def RealityKitStruct "Shape"
+        {
+            float3 extent = (0.2, 0.2, 0.2)
+            token shapeType = "Box"
+
+            def RealityKitStruct "pose"
+            {
+                float3 position = (-0.0045933053, 0, 0.008864559)
+            }
         }
     }
 }

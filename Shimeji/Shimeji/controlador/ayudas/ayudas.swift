@@ -11,4 +11,12 @@ enum BotonesDisponibles{
     case so_on_so_on
 }
 
+enum TiposDeInteraccion{
+    case entidad
+    case boton
+    case notificacion
+}
+
+
+
 

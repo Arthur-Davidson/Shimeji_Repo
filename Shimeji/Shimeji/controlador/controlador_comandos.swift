@@ -17,7 +17,7 @@ extension ControladorAplicacion: ProcesarComandos {
                 return true
                 
             default:
-                fatalError("[\(#file):\(#function)] NO has implentado esto campeon \(tipo)")
+                fatalError("[\(#file):\(#function)] No has implentado esto: \(tipo)")
                 return false
         }
         
@@ -34,7 +34,7 @@ extension ControladorAplicacion: ProcesarComandos {
                 return true
                 
             default:
-                fatalError("[\(#file):\(#function)] NO has implentado esto campeon \(comanda.tipo)")
+                fatalError("[\(#file):\(#function)] No has implentado esto: \(comanda.tipo)")
                 return false
         }
         

@@ -65,7 +65,7 @@ public class ControladorAplicacion{
         let ancla_rostro = AnchorEntity(.face)
         ancla_rostro.name = "Rostro"
         
-        let ancla_imagen = AnchorEntity(.image(group: "imagenes", name: "oyla"))
+        let ancla_imagen = AnchorEntity(.image(group: "imagenes", name: "maik_wazoski"))
         ancla_imagen.name = "imagen"
         
         let ancla = AnchorEntity(plane: .horizontal)
@@ -95,9 +95,9 @@ public class ControladorAplicacion{
         }
     }
     
-    func actualizar_estados(_ mensaje: String){
+    func actualizar_estados(_ tipo_interaccion: TiposDeInteraccion, _ interaccion: BotonesDisponibles){
         for maquina in maquinas_de_estados{
-            maquina.actualizar(mensaje)
+            maquina.actualizar(tipo_interaccion, interaccion)
         }
     }
     
@@ -106,7 +106,7 @@ public class ControladorAplicacion{
             let ancla_rostro = AnchorEntity(.face)
             ancla_rostro.name = "Rostro"
             
-            let ancla_imagen = AnchorEntity(.image(group: "imagenes", name: "oyla"))
+            let ancla_imagen = AnchorEntity(.image(group: "imagenes", name: "maik_wazoski"))
             ancla_imagen.name = "imagen"
             
             let ancla = AnchorEntity(plane: .horizontal)
@@ -150,5 +150,11 @@ public class ControladorAplicacion{
         }
     }
 }
+
+
+
+
+
+
 
 

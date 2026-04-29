@@ -6,6 +6,8 @@
 //
 
 class MaquinaEstadosAnimacion: MaquinaEstadosGenerica{
+
+    
     var controlador_general: (any ProcesarComandos)?
     
 
@@ -36,8 +38,8 @@ class MaquinaEstadosAnimacion: MaquinaEstadosGenerica{
         estado_actual = estado_nuevo
     }
     
-    func actualizar(_ evento: String){
-        estado_actual?.actualizar(evento)
+    func actualizar(_ tipo_interaccion: TiposDeInteraccion, _ interaccion: BotonesDisponibles) {
+        estado_actual?.actualizar(tipo_interaccion, interaccion)
     }
     
     func enviar_peticion(_ comando: Comando) -> Bool {
@@ -49,6 +51,8 @@ class MaquinaEstadosAnimacion: MaquinaEstadosGenerica{
     }
     
 }
+
+
 
 
 
