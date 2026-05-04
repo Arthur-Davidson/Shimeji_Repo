@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDmXYCpRCM5s3qXqsO3Dt0hgMdDjns0svg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>191724270850</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>mx.uacj.shimeji-daph</string>
+	<key>PROJECT_ID</key>
+	<string>shimeji-daph</string>
+	<key>STORAGE_BUCKET</key>
+	<string>shimeji-daph.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:191724270850:ios:e39f07a08eeaad012d3e1b</string>
+</dict>
+</plist>

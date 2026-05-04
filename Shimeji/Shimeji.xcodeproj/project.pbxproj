@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FB29E2112F965EA900083114 /* mundo_virtual in Resources */ = {isa = PBXBuildFile; fileRef = FB29E2072F965EA900083114 /* mundo_virtual */; };
+		FB73012D2FA8D8C000E77F9B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = FB73012C2FA8D8C000E77F9B /* FirebaseCore */; };
+		FB7301392FA8E06D00E77F9B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FB7301382FA8E06D00E77F9B /* FirebaseFirestore */; };
 		FBAA32CB2F8FD124001A993D /* mundo_virtual in Frameworks */ = {isa = PBXBuildFile; productRef = FBAA32CA2F8FD124001A993D /* mundo_virtual */; };
 /* End PBXBuildFile section */
 
@@ -29,19 +31,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB73012D2FA8D8C000E77F9B /* FirebaseCore in Frameworks */,
 				FBAA32CB2F8FD124001A993D /* mundo_virtual in Frameworks */,
+				FB7301392FA8E06D00E77F9B /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB73012B2FA8D8C000E77F9B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FBAA32B02F8FC7BA001A993D = {
 			isa = PBXGroup;
 			children = (
 				FBAA32BB2F8FC7BA001A993D /* Shimeji */,
 				FBAA32BA2F8FC7BA001A993D /* Products */,
 				FB29E2072F965EA900083114 /* mundo_virtual */,
+				FB73012B2FA8D8C000E77F9B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +86,8 @@
 			name = Shimeji;
 			packageProductDependencies = (
 				FBAA32CA2F8FD124001A993D /* mundo_virtual */,
+				FB73012C2FA8D8C000E77F9B /* FirebaseCore */,
+				FB7301382FA8E06D00E77F9B /* FirebaseFirestore */,
 			);
 			productName = Shimeji;
 			productReference = FBAA32B92F8FC7BA001A993D /* Shimeji.app */;
@@ -105,6 +119,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				FBAA32C92F8FD124001A993D /* XCLocalSwiftPackageReference "Shimeji/mundo_virtual" */,
+				FB73012A2FA8D7C900E77F9B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FBAA32BA2F8FC7BA001A993D /* Products */;
@@ -359,7 +374,28 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		FB73012A2FA8D7C900E77F9B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.12.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		FB73012C2FA8D8C000E77F9B /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB73012A2FA8D7C900E77F9B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		FB7301382FA8E06D00E77F9B /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB73012A2FA8D7C900E77F9B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		FBAA32CA2F8FD124001A993D /* mundo_virtual */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = mundo_virtual;
