@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ChatView: View {
     @State var sesion_chat = ServicioChat()
+    
+    @State var sesion_agente: ServicioAgente()
+    
     @State var mensajes_a_enviar: String = ""
     
     var body: some View {
@@ -20,8 +23,9 @@ struct ChatView: View {
             TextField("Cuentame que enviar", text: $mensajes_a_enviar)
             
             Button{
-                sesion_chat.enviar_mensaje(texto: mensajes_a_enviar)
-                mensajes_a_enviar = ""
+                //sesion_chat.enviar_mensaje(texto: mensajes_a_enviar)
+                //mensajes_a_enviar = ""
+                sesion_agente.crear_peticion()
             }label: {
                 Text("Pulsame para enviar cosas")
             }
