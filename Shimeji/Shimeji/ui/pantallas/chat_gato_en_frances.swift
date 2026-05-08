@@ -9,26 +9,26 @@ import SwiftUI
 
 struct ChatView: View {
     @State var sesion_chat = ServicioChat()
-    
-    @State var sesion_agente: ServicioAgente()
-    
-    @State var mensajes_a_enviar: String = ""
+    @State var sesion_agente = ServicioAgente()
+    @State var mensaje_a_enviar: String = ""
     
     var body: some View {
         VStack{
-            ForEach(sesion_chat.mensajes){
-                mensaje in Text("El mensaje es: \(mensaje.texto) de parte de: \(mensaje.remitente)")
+            ForEach(sesion_chat.mensajes){mensaje in
+                Text("El mensajes es: \(mensaje.texto) de parte de: \(mensaje.remitente)")
+                
             }
             
-            TextField("Cuentame que enviar", text: $mensajes_a_enviar)
+            Text("La respuesta del agente fue: \(sesion_agente.peticion?.respuesta)")
+            
+            TextField("Cuentame que enviar", text: $mensaje_a_enviar)
             
             Button{
-                //sesion_chat.enviar_mensaje(texto: mensajes_a_enviar)
-                //mensajes_a_enviar = ""
                 sesion_agente.crear_peticion()
-            }label: {
+            } label: {
                 Text("Pulsame para enviar cosas")
             }
+            
         }
         .onAppear {
             sesion_chat.obtner_mensajes()
@@ -39,3 +39,4 @@ struct ChatView: View {
 #Preview {
     ChatView()
 }
+

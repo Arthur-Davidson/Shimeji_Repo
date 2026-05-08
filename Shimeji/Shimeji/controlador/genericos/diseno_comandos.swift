@@ -24,3 +24,4 @@ public struct Comando: Identifiable, Codable{
     let tipo: Comandos
     let carga_util: String
 }
+

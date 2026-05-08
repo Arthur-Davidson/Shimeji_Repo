@@ -7,14 +7,13 @@
 
 import Foundation
 
-enum EstadosPeticion: String, Codable {
+enum EstadosPeticion: String, Codable{
     case creacion
     case procesamiento
     case resultado
 }
 
-struct Peticion: Codable, Identifiable
-{
+struct Peticion: Codable, Identifiable{
     var id: String
     var estado: EstadosPeticion
     var contexto: Contexto
@@ -23,3 +22,4 @@ struct Peticion: Codable, Identifiable
     var comando_a_ejecutar: Comando?
     var respuesta: String?
 }
+
