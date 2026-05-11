@@ -6,6 +6,12 @@
 //
 
 class ReposoAnimacion: Estado{
+    var descripcion: String = ""
+    
+    static var nombre: String = "Reposo"
+    
+    var posibles_estados: [String] = [SaltoAnimacion.nombre]
+    
     func actualizar(_ tipo_interaccion: TiposDeInteraccion, _ interaccion: BotonesDisponibles) {
         
         // print("\(#function):\(ReposoAnimacion.nombre) recibiendo informacion del tipo evento con datos \(evento)")
@@ -20,18 +26,15 @@ class ReposoAnimacion: Estado{
                         contexto?.enviar_peticion(Comando(tipo: .activar_animacion, carga_util: "da_un_salto"))
                         contexto?.realizar_cambio_de_estado(a: SaltoAnimacion.nombre)
                     default:
-                        print("Comando no especificado")
+                        print("Comanod no especifciado")
                 }
                 
             default:
-                print("Comando no especificado")
+                print("Comanod no especifciado")
         }
     }
     
     var contexto: (any MaquinaEstadosGenerica)? = nil
-    
-    static let nombre: String = "Reposo"
-
     
     func inicializar() { }
     
@@ -40,6 +43,7 @@ class ReposoAnimacion: Estado{
     func reaccion(estimulo: String) { }
 
 }
+
 
 
 

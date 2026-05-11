@@ -23,37 +23,42 @@ struct Inicio: View{
                             .foregroundStyle(Color.red)
                         
                     case .todo_cargado:
-                        RealityView{ raiz_de_escena in
-                            raiz_de_escena.camera = .spatialTracking
-                            
-                            //controlador.escenario = raiz_de_escena
-                            
-                            raiz_de_escena.add(controlador.raiz_escena)
-                            
-                            for ancla in controlador.entidades_ancla{
-                                raiz_de_escena.add(ancla)
+                        ZStack(alignment: .bottom){
+                            RealityView{ raiz_de_escena in
+                                raiz_de_escena.camera = .spatialTracking
+                                
+                                //controlador.escenario = raiz_de_escena
+                                
+                                raiz_de_escena.add(controlador.raiz_escena)
+                                
+                                for ancla in controlador.entidades_ancla{
+                                    raiz_de_escena.add(ancla)
+                                }
+                                
                             }
                             
-                        }
-                        
-                        .gesture(
-                            SpatialTapGesture().targetedToAnyEntity().onEnded(
-                                { entidad in
-                                    print("[Inicio:gesture] \(entidad.entity.name)")
-                                    controlador.actualizar_estados(.entidad, .so_on_so_on)
-                                }
+                            .gesture(
+                                SpatialTapGesture().targetedToAnyEntity().onEnded(
+                                    { entidad in
+                                        print("[Inicio:gesture] \(entidad.entity.name)")
+                                        controlador.actualizar_estados(.entidad, .so_on_so_on)
+                                    }
+                                )
                             )
-                        )
-                        
-                        .task {
-                            await controlador.servicio_ar()
-                        }
-                        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("RealityKit.NotificationTrigger"))){ notificacion in
-                            guard let notificacion = notificacion.userInfo?["RealityKit.NotificationTrigger.Identifier"] as? String else { return }
                             
-                            // controlador.escuchar_comportamiento(notificacion)
-                            controlador.actualizar_estados(.notificacion, .so_on_so_on)
+                            .task {
+                                await controlador.servicio_ar()
+                            }
+                            .onReceive(NotificationCenter.default.publisher(for: Notification.Name("RealityKit.NotificationTrigger"))){ notificacion in
+                                guard let notificacion = notificacion.userInfo?["RealityKit.NotificationTrigger.Identifier"] as? String else { return }
+                                
+                                // controlador.escuchar_comportamiento(notificacion)
+                                controlador.actualizar_estados(.notificacion, .so_on_so_on)
+                            }
+                            
+                            ChatView()
                         }
+                     
                 }
                 
             }
@@ -95,6 +100,7 @@ struct Inicio: View{
     Inicio()
         .environment(ControladorAplicacion())
 }
+
 
 
 

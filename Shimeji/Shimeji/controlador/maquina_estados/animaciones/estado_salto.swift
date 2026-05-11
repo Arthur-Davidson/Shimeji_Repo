@@ -5,15 +5,20 @@
 //  Created by alumno on 4/20/26.
 //
 
+
 class SaltoAnimacion: Estado{
+    var descripcion: String = "Estamos dando un salto"
+    
+    var posibles_estados: [String] = []
+    
   
     var contexto: (any MaquinaEstadosGenerica)? = nil
     
-    static let nombre = "Salto"
+    static var nombre = "Salto"
 
     
     func inicializar() {
-        print("Hola desde la luna \(#file)")
+        print("HOla desde Saltillo Hermosillo \(#file)")
     }
     
     func actualizar(_ tipo_interaccion: TiposDeInteraccion, _ interaccion: BotonesDisponibles) {
@@ -33,6 +38,7 @@ class SaltoAnimacion: Estado{
     
     
 }
+
 
 
 

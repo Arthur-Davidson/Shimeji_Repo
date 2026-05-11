@@ -9,6 +9,7 @@ import SwiftUI
 import RealityKit
 import ARKit
 import mundo_virtual
+import FirebaseFirestore
 
 
 @Observable
@@ -20,16 +21,20 @@ public class ControladorAplicacion{
 
     public var estado: EstadosAplicacion = .iniciando
     
+    public var pantallas_emergentes: [PantallasDisponibles] = []
+    
     private var planetas_cargados: [Entity] = []
     var entidades_ancla: [AnchorEntity] = []
 
     var historial_comandos: [Comando] = []
     
-    var maquinas_de_estados: [MaquinaEstadosGenerica] = [MaquinaEstadosAnimacion()]
+    var maquinas_de_estados: [MaquinaEstadosGenerica] = [PersonajeGestorEstados()]
     
     private var servicio = ARReferenceImage.referenceImages(inGroupNamed: "imagenes", bundle: nil)
     
     init(){
+        // entidad_ia = ServicioAgente()
+        
         for indice in 0...maquinas_de_estados.count - 1{
             maquinas_de_estados[indice].controlador_general = self as ProcesarComandos
         }
@@ -65,7 +70,7 @@ public class ControladorAplicacion{
         let ancla_rostro = AnchorEntity(.face)
         ancla_rostro.name = "Rostro"
         
-        let ancla_imagen = AnchorEntity(.image(group: "imagenes", name: "maik_wazoski"))
+        let ancla_imagen = AnchorEntity(.image(group: "imagenes", name: "oyla"))
         ancla_imagen.name = "imagen"
         
         let ancla = AnchorEntity(plane: .horizontal)
@@ -106,7 +111,7 @@ public class ControladorAplicacion{
             let ancla_rostro = AnchorEntity(.face)
             ancla_rostro.name = "Rostro"
             
-            let ancla_imagen = AnchorEntity(.image(group: "imagenes", name: "maik_wazoski"))
+            let ancla_imagen = AnchorEntity(.image(group: "imagenes", name: "oyla"))
             ancla_imagen.name = "imagen"
             
             let ancla = AnchorEntity(plane: .horizontal)
@@ -149,8 +154,13 @@ public class ControladorAplicacion{
             print("[\(#file.split(separator: "/").last):\(#function)] se esta viendo la ancla \(ancla.name) ? \(ancla.isEnabled)")
         }
     }
+    
+    func generar_contexto() -> Contexto{
+        let personaje_actual = maquinas_de_estados[0]
+        print("personaje actual: \(personaje_actual)")
+        return personaje_actual.generar_contexto_textual()
+    }
 }
-
 
 
 

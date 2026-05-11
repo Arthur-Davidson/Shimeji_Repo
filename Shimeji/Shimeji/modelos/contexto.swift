@@ -10,8 +10,10 @@ import Foundation
 struct Contexto: Codable{
     var historia: String
     var personalidad: String
-    var acciones_disponibles: [String]
     var estados_disponibles: [String]
-    var estado_emocional: String
+    var estado_actual: String
+    var descrpcion: String
 }
+
+
 

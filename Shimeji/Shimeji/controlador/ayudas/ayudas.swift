@@ -17,6 +17,18 @@ enum TiposDeInteraccion{
     case notificacion
 }
 
+enum AccionesARealizar: String, Codable {
+    case abrir_pantalla
+    case avanzar_historia
+}
+
+public enum PantallasDisponibles: String, Codable {
+    case ataque
+    case platicar
+}
+
+
+
 
 
 
