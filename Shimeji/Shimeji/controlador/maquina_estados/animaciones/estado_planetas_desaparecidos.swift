@@ -12,7 +12,7 @@ class PlanetasDesaparecidos: Estado{
     
 
     var contexto: (any MaquinaEstadosGenerica)?
-    static var nombre = "Planetas de23parecidos"
+    static var nombre = "Planetas desaparecidos"
     
     func inicializar() {
         

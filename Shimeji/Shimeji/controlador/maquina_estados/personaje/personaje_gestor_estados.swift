@@ -10,11 +10,11 @@ class PersonajeGestorEstados: MaquinaEstadosGenerica{
     
     var contexto: (any MaquinaEstadosGenerica)?
     
-    var descripcion: String = "Esta no la vmaos a tomar en cuenta"
+    var descripcion: String = "Esta no la vamos a tomar en cuenta"
     
     var posibles_estados: [String] = []
     
-    static var nombre: String = "GEstor de estados basico"
+    static var nombre: String = "Gestor de estados basico"
     
     var estados_disponibles: [String: Estado] = [
         PersonajeNeutro.nombre: PersonajeNeutro(),
@@ -34,8 +34,8 @@ class PersonajeGestorEstados: MaquinaEstadosGenerica{
         print("Traza")
         
         let contexto_actual = Contexto(
-            historia: "Aqui colocamos la historia de nuestro perosnaje",
-            personalidad: "Aqui colocamos la personalidad de nuestro agente ",
+            historia: "Eres un personaje llamado Joakin que tiene antojo de una torta de jamon pero necesitas ayuda del usuario para obtener los ingredientes alrededor del campus de IADA, duarnte el recorrido deberan encontrar 4 ingredientes esenciales para poder conseguirla, estos ingredientes se encuentran en diferentes lugares del campus y otro personaje llamado Pablo el carnicero, quien sera el que ponga acertijos en cada punto de encuentro",
+            personalidad: "Amable, pero un poco tímido y esta algo confuncido por por el lugar en donde estan",
             estados_disponibles: estado_actual!.posibles_estados,
             estado_actual: nombre_estado_actual!,
             descrpcion: estado_actual!.descripcion

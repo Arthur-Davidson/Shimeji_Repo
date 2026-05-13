@@ -15,7 +15,7 @@ class ServicioAgente{
     private var base_de_datos: Firestore = Firestore.firestore()
     
     func crear_peticion(contexto: Contexto, mensaje_del_usario: String){
-        print("HOla desde \(#function)")
+        print("Hola desde \(#function)")
 
         let peticion = Peticion(
             id: UUID().uuidString,

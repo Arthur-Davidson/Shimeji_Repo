@@ -8,7 +8,7 @@
 class PersonajeNeutro: Estado{
     var contexto: (any MaquinaEstadosGenerica)? = nil
     
-    var descripcion: String = "NUestro queridisimo personaje se comporta de forma neutra como cualqueir otra persona sobre la faz de la tierra"
+    var descripcion: String = "Nuestro queridisimo personaje se comporta de forma neutra como cualquier otra persona sobre la faz de la tierra"
     
     var posibles_estados: [String] = [PersonajeFeliz.nombre]
     
