@@ -15,6 +15,14 @@ import FirebaseFirestore
 @Observable
 @MainActor
 public class ControladorAplicacion{
+    var estado_agente_visual: String = "lejos"
+    
+    
+    var controlador_pistas = ControladorPistas()
+
+    var servicio_ubicacion = ServicioUbicacion()
+    
+    
     public var escenario: RealityViewCameraContent? = nil
     
     public var raiz_escena: Entity = Entity()
@@ -155,10 +163,39 @@ public class ControladorAplicacion{
         }
     }
     
-    func generar_contexto() -> Contexto{
+    func generar_contexto() -> Contexto {
+        
         let personaje_actual = maquinas_de_estados[0]
-        print("personaje actual: \(personaje_actual)")
-        return personaje_actual.generar_contexto_textual()
+        
+        return Contexto(
+            historia: "La historia del personaje",
+            personalidad: "Amable pero curioso",
+            estados_disponibles: personaje_actual.estado_actual?.posibles_estados ?? [],
+            estado_actual: "",
+            descrpcion: personaje_actual.estado_actual?.descripcion ?? "",
+            estado_agente: estado_agente_visual   // importante
+        )
+    }
+    
+    
+    func actualizar_distancia_pistas() {
+        
+        controlador_pistas.verificar_distancia(
+            latitud_usuario: servicio_ubicacion.latitud,
+            longitud_usuario: servicio_ubicacion.longitud
+        )
+        
+        let distancia = controlador_pistas.distancia_actual
+        
+        if controlador_pistas.jugador_cerca {
+            estado_agente_visual = "punto"
+        }
+        else if distancia < 100 {
+            estado_agente_visual = "cerca"
+        }
+        else {
+            estado_agente_visual = "lejos"
+        }
     }
 }
 

@@ -5,13 +5,14 @@
 //  Created by alumno on 5/11/26.
 //
 
-class PersonajeGestorEstados: MaquinaEstadosGenerica{
+class PersonajeGestorEstados: MaquinaEstadosGenerica {
+    
     var controlador_general: (any ProcesarComandos)?
     
-    var contexto: (any MaquinaEstadosGenerica)?
+    // 🔥 FIX IMPORTANTE: evitar tipo circular problemático
+    var contexto: AnyObject?
     
-    var descripcion: String = "Esta no la vamos a tomar en cuenta"
-    
+    var descripcion: String = "Gestor de estados del personaje"
     var posibles_estados: [String] = []
     
     static var nombre: String = "Gestor de estados basico"
@@ -22,28 +23,29 @@ class PersonajeGestorEstados: MaquinaEstadosGenerica{
     ]
     
     var estado_actual: Estado? = nil
-    var nombre_estado_actual: String?
+    var nombre_estado_actual: String = PersonajeNeutro.nombre
     
-    init(){
-        realizar_cambio_de_estado(a: PersonajeNeutro.nombre)
-        
+    init() {
+        estado_actual = estados_disponibles[PersonajeNeutro.nombre]
         estado_actual?.contexto = self
+        estado_actual?.inicializar()
     }
     
     func generar_contexto_textual() -> Contexto {
-        print("Traza")
         
-        let contexto_actual = Contexto(
-            historia: "Eres un personaje llamado Joakin que tiene antojo de una torta de jamon pero necesitas ayuda del usuario para obtener los ingredientes alrededor del campus de IADA, duarnte el recorrido deberan encontrar 4 ingredientes esenciales para poder conseguirla, estos ingredientes se encuentran en diferentes lugares del campus y otro personaje llamado Pablo el carnicero, quien sera el que ponga acertijos en cada punto de encuentro",
-            personalidad: "Amable, pero un poco tímido y esta algo confuncido por por el lugar en donde estan",
-            estados_disponibles: estado_actual!.posibles_estados,
-            estado_actual: nombre_estado_actual!,
-            descrpcion: estado_actual!.descripcion
+        let estados = estado_actual?.posibles_estados ?? []
+        let descripcion = estado_actual?.descripcion ?? ""
+        
+        return Contexto(
+            historia: "Eres un personaje llamado Joakin que busca ingredientes en el campus de IADA.",
+            personalidad: "Amable, tímido y curioso",
+            estados_disponibles: estados,
+            estado_actual: nombre_estado_actual,
+            descrpcion: descripcion,
+            estado_agente: "neutral"
         )
-        
-        return contexto_actual
     }
-
+    
     func inicializar() { }
     
     func actualizar(_ tipo_interaccion: TiposDeInteraccion, _ interaccion: BotonesDisponibles) {
@@ -55,19 +57,43 @@ class PersonajeGestorEstados: MaquinaEstadosGenerica{
     func reaccion(estimulo: String) { }
     
     func realizar_cambio_de_estado(a nombre_del_estado_nuevo: String) {
-        guard var estado_nuevo = estados_disponibles[nombre_del_estado_nuevo] else {
-            fatalError("Parece que el estado \(nombre_del_estado_nuevo) no esta disponible o registrado, por favor revisa.")
+        
+        guard let estado_nuevo = estados_disponibles[nombre_del_estado_nuevo] else {
+            print("Estado no encontrado: \(nombre_del_estado_nuevo)")
+            return
         }
         
-        nombre_estado_actual = nombre_del_estado_nuevo
+        guard nombre_estado_actual != nombre_del_estado_nuevo else {
+            return
+        }
         
         estado_actual?.finalizar()
         
-        estado_nuevo.contexto = self as MaquinaEstadosGenerica
+        nombre_estado_actual = nombre_del_estado_nuevo
+        
+        estado_nuevo.contexto = self   // ✅ FIX PRINCIPAL (sin cast raro)
+        
         estado_nuevo.inicializar()
         
         estado_actual = estado_nuevo
     }
     
+    func reaccionar_a_distancia(_ estado: String) {
+        
+        switch estado {
+            
+        case "lejos":
+            realizar_cambio_de_estado(a: PersonajeNeutro.nombre)
+            
+        case "cerca":
+            realizar_cambio_de_estado(a: PersonajeFeliz.nombre)
+            
+        case "punto":
+            print("🔥 estado especial desbloqueado")
+            
+        default:
+            break
+        }
+    }
 }
 

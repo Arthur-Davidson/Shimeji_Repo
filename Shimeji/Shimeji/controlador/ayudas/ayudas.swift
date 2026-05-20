@@ -23,8 +23,12 @@ enum AccionesARealizar: String, Codable {
 }
 
 public enum PantallasDisponibles: String, Codable {
-    case ataque
-    case platicar
+    case lista_pistas
+    
+    case pista_1
+    case pista_2
+    case pista_3
+    case pista_4
 }
 
 

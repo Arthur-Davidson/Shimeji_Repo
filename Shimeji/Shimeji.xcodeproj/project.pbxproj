@@ -18,9 +18,22 @@
 		FBAA32B92F8FC7BA001A993D /* Shimeji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shimeji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FBD07A112FBDF30100687574 /* Exceptions for "Shimeji" folder in "Shimeji" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = FBAA32B82F8FC7BA001A993D /* Shimeji */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FBAA32BB2F8FC7BA001A993D /* Shimeji */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				FBD07A112FBDF30100687574 /* Exceptions for "Shimeji" folder in "Shimeji" target */,
+			);
 			path = Shimeji;
 			sourceTree = "<group>";
 		};
@@ -284,8 +297,10 @@
 				DEVELOPMENT_TEAM = 46HFMXNPH4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Shimeji/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.adventure-games";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Para por hacer seguimiento visual de las pistas";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Necesitamos tu ubicación para encontrar pistas cercanas.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -319,8 +334,10 @@
 				DEVELOPMENT_TEAM = 46HFMXNPH4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Shimeji/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.adventure-games";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Para por hacer seguimiento visual de las pistas";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Necesitamos tu ubicación para encontrar pistas cercanas.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

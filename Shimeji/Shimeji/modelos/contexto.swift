@@ -7,12 +7,14 @@
 
 import Foundation
 
-struct Contexto: Codable{
+struct Contexto: Codable {
     var historia: String
     var personalidad: String
     var estados_disponibles: [String]
     var estado_actual: String
-    var descrpcion: String
+    var descripcion: String
+    
+    var estado_agente: String   //
 }
 
 

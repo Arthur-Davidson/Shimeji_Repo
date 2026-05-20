@@ -18,7 +18,7 @@ struct ShimejiApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SeguimientoImagenes()
+            ListaPistasView()
                 .environment(controlador_general)
         }
     }

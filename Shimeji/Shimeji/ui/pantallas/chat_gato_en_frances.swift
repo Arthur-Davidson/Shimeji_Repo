@@ -11,13 +11,11 @@ struct ChatView: View {
     @Environment(ControladorAplicacion.self) var controlador
     @State var entidad_ia = ServicioAgente()
     
-    static let nombre = PantallasDisponibles.ataque
-    
     @State var mensaje_a_enviar: String = ""
     
     var body: some View {
         VStack{
-            Text("La respuesta del agente fue: \(entidad_ia.peticion?.respuesta)")
+            Text("Estado del agente: \(controlador.estado_agente_visual)")
             
             TextField("Cuentame que enviar", text: $mensaje_a_enviar)
               
